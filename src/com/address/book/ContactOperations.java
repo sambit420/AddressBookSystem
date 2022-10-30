@@ -1,6 +1,7 @@
 package com.address.book;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class ContactOperations {
@@ -27,10 +28,23 @@ public class ContactOperations {
         System.out.println("Enter the Email:");
         String email = scan.nextLine();
 
-        //Calling Contact person class
+        //Calling Address BOOK class
         AddressBook details = new AddressBook(firstName, lastName, address, city, state, zip, phoneNumber, email);
         contactDetails.add(details);
     }
+    public void sharedContactCards()
+    {
+        AddressBook a = new AddressBook("Soumya", "Singh", "Jobra", "Cuttack",
+                "Odisha", "753007", "8908641811", "soumyars675@gmail.com");
+        AddressBook b = new AddressBook("Sambit", "Behera", "Chowdwar", "Cuttack",
+                "Odisha", "754021", "7008565646", "sbehera@gmail.com");
+        AddressBook c = new AddressBook("Nigam", "Jena", "Nakhara", "Bbsr",
+                "Odisha", "724001", "9937585846", "njena50@gmail.com");
+        contactDetails.add(a);
+        contactDetails.add(b);
+        contactDetails.add(c);
+    }
+
 
     //For editing contact
     public boolean editContact(String Name) {
@@ -121,13 +135,6 @@ public class ContactOperations {
         return flag == 1;
     }
 
-    //Print the contact details
-    public void printContact()
-    {
-        AddressBook a = new AddressBook();
-        a.printContact(contactDetails);
-    }
-
     //Check if array list is empty
     public boolean checkList()
     {
@@ -135,6 +142,22 @@ public class ContactOperations {
             return true;
         else
             return false;
+    }
+
+    //Printing contactDetails
+    public void printContact() {
+        if(checkList())
+        {
+            System.out.println("Contact details are below.....\n");
+            Iterator it = contactDetails.iterator();
+            while (it.hasNext())
+            {
+                System.out.println(it.next());
+            }
+        }
+        else
+            System.out.println("Contact list is empty.");
+    }
+
 
     }
-}
