@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class AddressBook {
+
     //Declaring variables for Address Book System
     private String firstName;
     private String lastName;
@@ -15,7 +16,7 @@ public class AddressBook {
     private String email;
 
     //Creating one parameterized constructor
-    public AddressBook (String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
+    public AddressBook(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
         setFirstName(firstName);
         setLastName(lastName);
         setAddress(address);
