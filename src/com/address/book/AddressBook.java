@@ -5,6 +5,7 @@ import java.util.List;
 
 public class AddressBook {
 
+
     //Declaring variables for Address Book System
     private String firstName;
     private String lastName;
@@ -79,4 +80,5 @@ public class AddressBook {
                 ", email='" + email + '\'' +
                 '}';
     }
+
 }
