@@ -6,6 +6,7 @@ import java.util.List;
 public class AddressBook {
 
 
+
     //Declaring variables for Address Book System
     private String firstName;
     private String lastName;
@@ -61,9 +62,37 @@ public class AddressBook {
         this.email = email;
     }
 
-    //Creating getter method for first name.
+    //Creating getter method.
     public String getFirstName() {
         return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     //Grab to a toString method

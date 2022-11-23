@@ -18,21 +18,32 @@ public class ContactOperations {
 
     //Adding to list (Considering no duplicate occurs in the list)
     public void addToList(AddressBook obj) {
-        if (checkList() == false) {
+        if (checkList() == false)
+        {
             contactDetails.add(obj);
             check = true;
-        } else {
-            boolean flag = false;
-            for (int i = 0; i < contactDetails.size(); i++) {
-                if (contactDetails.get(i).getFirstName().equalsIgnoreCase(obj.getFirstName())) {
-                    flag = true;
-                    break;
-                }
-            }
-            if (flag == true) {
-                System.out.println("Already this contact details : " + obj.getFirstName() + " is present in the list");
+        }
+        else
+        {
+            boolean flag = contactDetails.stream().anyMatch((ContactPerson)
+                    -> ContactPerson.getFirstName().equalsIgnoreCase(obj.getFirstName()));
+
+//            boolean flag = false;
+//            for (int i = 0; i < contactDetails.size(); i++)
+//            {
+//                if (contactDetails.get(i).getFirstName().equalsIgnoreCase(obj.getFirstName()))
+//                {
+//                    flag = true;
+//                    break;
+//                }
+//            }
+            if (flag == true)
+            {
+                System.out.println("Already this contact details : "+obj.getFirstName()+" is present in the list");
                 check = false;
-            } else {
+            }
+            else
+            {
                 contactDetails.add(obj);
                 check = true;
             }
@@ -40,7 +51,8 @@ public class ContactOperations {
     }
 
     //For adding contact
-    public void addContact() {
+    public void addContact()
+    {
         System.out.println("Enter the contact details.............");
         System.out.println("Enter the First name:");
         String firstName = scan.nextLine();
@@ -60,19 +72,18 @@ public class ContactOperations {
         String email = scan.nextLine();
 
         //Calling Contact person class
-        AddressBook details = new AddressBook (firstName, lastName, address, city, state, zip, phoneNumber, email);
+        AddressBook details = new AddressBook(firstName, lastName, address, city, state,zip,phoneNumber,email);
         addToList(details);
     }
 
     //Adding some contact cards
-    public void sharedContactCards() {
+    public void sharedContactCards()
+    {
         AddressBook a = new AddressBook("Soumya", "Singh", "Jobra", "Cuttack",
                 "Odisha", "753007", "8908641811", "soumyars675@gmail.com");
         AddressBook b = new AddressBook("Sambit", "Behera", "Chowdwar", "Cuttack",
                 "Odisha", "754021", "7008565646", "sbehera@gmail.com");
-
         AddressBook c = new AddressBook("Nigam", "Jena", "Nakhara", "Bbsr",
-
                 "Odisha", "724001", "9937585846", "njena50@gmail.com");
         addToList(a);
         addToList(b);
@@ -80,9 +91,11 @@ public class ContactOperations {
     }
 
     //For editing contact
-    public boolean editContact() {
+    public boolean editContact()
+    {
         int flag = 0;
-        if (checkList()) {
+        if (checkList())
+        {
             System.out.println("Enter the Person First name to edit details: ");
             String name = scan.next();
             for (AddressBook contact : contactDetails) {
@@ -160,7 +173,8 @@ public class ContactOperations {
     //For deleting contact
     public boolean deleteContact() {
         int flag = 0;
-        if (checkList()) {
+        if (checkList())
+        {
             System.out.println("Enter the Contact to be deleted:");
             String name = scan.next();
             for (AddressBook contact : contactDetails) {
@@ -175,7 +189,8 @@ public class ContactOperations {
     }
 
     //Check if array list is empty
-    public boolean checkList() {
+    public boolean checkList()
+    {
         if (!contactDetails.isEmpty())
             return true;
         else
@@ -184,14 +199,26 @@ public class ContactOperations {
 
     //Printing contactDetails
     public void printContact() {
-        if (checkList()) {
+        if(checkList())
+        {
             System.out.println("Contact details are below.....\n");
             Iterator it = contactDetails.iterator();
-            while (it.hasNext()) {
+            while (it.hasNext())
+            {
                 System.out.println(it.next());
             }
-        } else
+        }
+        else
             System.out.println("Contact list is empty.");
+    }
+
+    //Method to get objects of list
+    public ArrayList<AddressBook> getContact() {
+        if(checkList())
+        {
+            return contactDetails;
+        }
+        return null;
     }
 
     //Creating a To string method
