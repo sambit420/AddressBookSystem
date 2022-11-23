@@ -98,7 +98,7 @@ public class AddressBook {
     //Grab to a toString method
     @Override
     public String toString() {
-        return "ContactPerson{" +
+        return "AddressBook{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
